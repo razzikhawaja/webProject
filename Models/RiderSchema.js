@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
 
 const RiderSchema = new mongoose.Schema({
+  
+  riderid:{
+    type:Number,
+    required:true,
+  },
+
   name: {
     type: String,
     required: true

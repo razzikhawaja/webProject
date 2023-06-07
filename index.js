@@ -37,6 +37,7 @@ mongoose.connect(url
 
 
 app.post("/api/adminLogin", async (req, res) => {
+  // console.log(req.body)
   const result = await Admin.findOne({
     username: req.body.username,
     password: req.body.password,
@@ -134,21 +135,23 @@ app.get('/riders/unavailable', async (req, res) => {
   }
 });
 
+//----------------------------------------------------
 
-//---------------------------------------------------------------------
-
-app.post("/riders/addRider", async (req, res) => {
-  try {
-    const { name, phone, email, status } = req.body;
-    const rider = await new Rider({ name, phone, email, status });
-    rider.save().then((response) => {
-      console.log(response);
-      res.json({ status: response });
-    });
-  } catch (error) {
-    res.json({ status: "error" });
+app.post("/riders/deleteRider", async (req, res) => {
+  const result = await Rider.deleteOne({
+    riderid: req.body.riderid,
+  });
+  if (result.deletedCount == 1) {
+    console.log("Rider deleted");
+  } else {
+    console.log("Rider not found");
   }
+  res.send({ status: result });
 });
+
+
+
+//------------------------------------------------------
 
 //--------------------------------------------------------
 
@@ -197,21 +200,7 @@ app.post("/api/unBlockUser", async (req, res) => {
 
 //--------------------------------------------------------
 
-app.post("/riders/deleteRider", async (req, res) => {
-  const result = await Dish.deleteOne({
-    email: req.body.email,
-  });
-  if (result.deletedCount == 1) {
-    console.log("deleted");
-  } else {
-    console.log("not found");
-  }
-  res.send({ status: result });
-});
 
-
-
-//------------------------------------------------------
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

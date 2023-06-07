@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
   {
+    userid: {
+      type: Number,
+      default: 0,
+    },
     full_name: {
       type: String,
       required: true,
@@ -23,6 +27,10 @@ const UserSchema = new Schema(
     password: {
       type: String,
       required: true,
+    },
+    isBlock: {
+      type: Boolean,
+      //default: false,
     },
   },
   {
