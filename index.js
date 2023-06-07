@@ -115,25 +115,25 @@ app.get("/api/riders", async (req, res) => {
 });
 
 
-// GET all available riders
-app.get('/riders/available', async (req, res) => {
-  try {
-    const availableRiders = await Rider.find({ status: 'available' });
-    res.json(availableRiders);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+// // GET all available riders
+// app.get('/riders/available', async (req, res) => {
+//   try {
+//     const availableRiders = await Rider.find({ status: 'available' });
+//     res.json(availableRiders);
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// });
 
-// GET all unavailable riders
-app.get('/riders/unavailable', async (req, res) => {
-  try {
-    const unavailableRiders = await Rider.find({ status: 'unavailable' });
-    res.json(unavailableRiders);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+// // GET all unavailable riders
+// app.get('/riders/unavailable', async (req, res) => {
+//   try {
+//     const unavailableRiders = await Rider.find({ status: 'unavailable' });
+//     res.json(unavailableRiders);
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// });
 
 //----------------------------------------------------
 
