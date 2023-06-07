@@ -8,6 +8,7 @@ const Dish = require("./models/DishesSchema");
 const Feedback = require("./models/FeedbackSchema");
 const Admin = require("./Models/AdminSchema");
 const Rider=require("./Models/RiderSchema");
+const User = require("./Models/UserSchema");
 
 
 
@@ -136,7 +137,81 @@ app.get('/riders/unavailable', async (req, res) => {
 
 //---------------------------------------------------------------------
 
+app.post("/riders/addRider", async (req, res) => {
+  try {
+    const { name, phone, email, status } = req.body;
+    const rider = await new Rider({ name, phone, email, status });
+    rider.save().then((response) => {
+      console.log(response);
+      res.json({ status: response });
+    });
+  } catch (error) {
+    res.json({ status: "error" });
+  }
+});
 
+//--------------------------------------------------------
+
+
+app.post("/api/getUsers", async (req, res) => {
+  const result = await User.find({}, { _id: 0 })
+    .then((response) => {
+      res.send(response);
+    })
+    .catch({ message: "error" });
+});
+
+app.post("/api/deleteUser", async (req, res) => {
+  const result = await User.deleteOne({
+    userid: req.body.userid,
+  });
+  if (result.deletedCount == 1) {
+    console.log("User deleted");
+  } else {
+    console.log("User not found");
+  }
+  res.send({ status: result });
+});
+
+app.post("/api/blockUser", async (req, res) => {
+  await User.updateOne({ userid: req.body.userid }, { isBlock: true })
+    .then((response) => {
+      console.log(response);
+      res.send({ blocked: response.modifiedCount });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+});
+
+app.post("/api/unBlockUser", async (req, res) => {
+  await User.updateOne({ userid: req.body.userid }, { isBlock: false })
+    .then((response) => {
+      console.log(response);
+      res.send({ unblocked: response.modifiedCount });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+});
+
+//--------------------------------------------------------
+
+app.post("/riders/deleteRider", async (req, res) => {
+  const result = await Dish.deleteOne({
+    email: req.body.email,
+  });
+  if (result.deletedCount == 1) {
+    console.log("deleted");
+  } else {
+    console.log("not found");
+  }
+  res.send({ status: result });
+});
+
+
+
+//------------------------------------------------------
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

@@ -2,21 +2,25 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const DishSchema = new Schema(
+const UserSchema = new Schema(
   {
-    name: {
+    full_name: {
       type: String,
       required: true,
     },
-    image: {
-      type: String,
-      required: true
-    },
-    price: {
+    address: {
       type: String,
       required: true,
     },
-    des: {
+    phone_number: {
+      type: Number,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    password: {
       type: String,
       required: true,
     },
@@ -26,5 +30,5 @@ const DishSchema = new Schema(
   }
 );
 
-const Dish = mongoose.model("Dish", DishSchema);
-module.exports = Dish;
+const User = mongoose.model("User", UserSchema);
+module.exports = User;
