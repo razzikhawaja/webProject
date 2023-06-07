@@ -24,8 +24,13 @@ const Header = () => {
           <li>
             <NavLink to="/AddDish">Add Dish</NavLink>
           </li>
+         
           <li>
             <NavLink to="/DeleteDish">Delete Dish</NavLink>
+          </li>
+          
+          <li>
+            <NavLink to="/Weather">Weather</NavLink>
           </li>
           <li>
             <NavLink to="/ManageRider">rider</NavLink>
@@ -33,6 +38,7 @@ const Header = () => {
           <li>
             <NavLink to="/ViewFeedbacks">Feedback</NavLink>
           </li>
+          
         </ul>
         {/* ------------------------------------------------------------------- */}
         {/* <div className="oo">

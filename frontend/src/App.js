@@ -4,15 +4,32 @@ import Footer from "./Manager/Footer";
 import React from "react";
 import AdminLogin from "./Manager/AdminLogin"
 
+import { useState } from "react";
+
+
+
 const App=()=> {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // const handleLogin = () => {
+  //   setIsLoggedIn(true);
+  // };
   return (
     <>
-   
-      <Home/>
-      <AdminLogin/>
-     
+      {
+        isLoggedIn ? 
+        <>
+        <Header/>
+        <Home/>
+        <Footer/>
+        </>
+        :
+        <AdminLogin setIsLoggedIn={setIsLoggedIn}/>
+       
+      }
      
     </>
+    
   );
 };
 

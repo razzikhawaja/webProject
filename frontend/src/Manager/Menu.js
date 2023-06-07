@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../style/Card.css";
-import { Link } from "react-router-dom";
+
 const logo=require("../images/logo.jpg")
 
 const Items = (props) => {

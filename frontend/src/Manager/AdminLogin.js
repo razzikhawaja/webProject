@@ -6,7 +6,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 
-const Login = () => {
+const Login = ({setIsLoggedIn}) => {
   let navigate = useNavigate();
 
   const [Admin, setAdmin] = useState({
@@ -30,7 +30,7 @@ const Login = () => {
     axios(options)
       .then((response) => {
         if (response.data.found) {
-          
+            setIsLoggedIn(true)
             navigate("/Main");
           }
         else {

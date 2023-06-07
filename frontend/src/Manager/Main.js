@@ -3,7 +3,7 @@ import React from "react";
 import vid from "../images/video 1.mp4";
 import "../style/Main_vid.css";
 const Main = () => {
-  return (
+    return (
     <>
       <div class="textC">
         <h1>Welcome to</h1>

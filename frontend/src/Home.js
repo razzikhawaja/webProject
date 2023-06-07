@@ -8,9 +8,14 @@ import Main from "./Manager/Main";
 import ManageUsers from "./Manager/ManageUser";
 import ManageRider from "./Manager/ManageRider";
 import AdminLogin from "./Manager/AdminLogin";
+import { useState } from "react";
+import Header from "./Manager/Header";
+import Weather from "./Manager/Weather";
 const Home = () => {
+  const [log,setlog]=useState(false);
   return (
     <>
+
       <Routes>
           <Route path="/AdminLogin" element={<AdminLogin/>}/> 
           <Route path="/Main" element={<Main/>}/>
@@ -20,6 +25,8 @@ const Home = () => {
           <Route path="/ViewFeedbacks" element={<ViewFeedbacks/>}/>
           <Route path="/ManageUsers" element={<ManageUsers/>}/>
           <Route path="/ManageRider" element={<ManageRider/>}/>
+          <Route path="/Weather" element={<Weather/>}/>
+          
       </Routes>
     </>
   );

@@ -25,7 +25,7 @@ const DeleteDish = () => {
             console.log("err",err);
         });
 
-    },0)
+    },allDishes)
         
     function Show(obj) {
         return <OneDish name={obj.name} ipath={obj.ipath} price={obj.price} des={obj.des} />;

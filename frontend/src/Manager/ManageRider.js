@@ -44,6 +44,7 @@ const ManageRider = () => {
             <th>Name</th>
             <th>Phone No</th>
             <th>Email</th>
+            <th>Status</th>
             <th>Delete</th>
           </thead>
 
@@ -79,6 +80,7 @@ const Row = (props) => {
         <td>{props.name}</td>
         <td>{props.phone}</td>
         <td>{props.email}</td>
+        <td>{props.status}</td>
        
         <td>
           <button className="dellbutt" onClick={delHandel}>
