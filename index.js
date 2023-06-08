@@ -16,7 +16,7 @@ const User = require("./Models/UserSchema");
 const app = express();
 app.use(cors());
 app.use(express.json());
-const port = 3001;
+const port = 3002;
 
 
 
