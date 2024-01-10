@@ -16,13 +16,13 @@ const User = require("./Models/UserSchema");
 const app = express();
 app.use(cors());
 app.use(express.json());
-const port = 3002;
+const port = 3001;
 
 
 
 
 //------------------------------------------------------------------------------
-let url="mongodb+srv://areeb:12345@cluster0.hcn5lr8.mongodb.net/";
+let url="mongodb+srv://razzi:0984@cluster0.vuen418.mongodb.net/Restaurant";
 mongoose.connect(url
 ).then(()=>{
   console.log("Database Connected")
